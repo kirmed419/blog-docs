@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>algorithm on Data Guide</title>
+    <link>https://kirmed419.github.io/blog-docs/tags/algorithm/</link>
+    <description>Recent content in algorithm on Data Guide</description>
+    <generator>Hugo -- 0.121.2</generator>
+    <language>en-us</language>
+    <atom:link href="https://kirmed419.github.io/blog-docs/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linear Regression</title>
+      <link>https://kirmed419.github.io/blog-docs/guides/linreg/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://kirmed419.github.io/blog-docs/guides/linreg/</guid>
+      <description>Learn about the most rudimentary Algorithm in Machine Learning.</description>
+    </item>
+  </channel>
+</rss>

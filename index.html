@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head>
+	<meta name="generator" content="Hugo 0.121.2"><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Data Guide</title>
+
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="canonical" href="https://kirmed419.github.io/blog-docs/">
+<link crossorigin="anonymous" href="/blog-docs/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://kirmed419.github.io/blog-docs/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://kirmed419.github.io/blog-docs/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://kirmed419.github.io/blog-docs/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://kirmed419.github.io/blog-docs/apple-touch-icon.png">
+<link rel="mask-icon" href="https://kirmed419.github.io/blog-docs/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://kirmed419.github.io/blog-docs/index.xml">
+<link rel="alternate" type="application/json" href="https://kirmed419.github.io/blog-docs/index.json">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Data Guide" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://kirmed419.github.io/blog-docs/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Data Guide"/>
+<meta name="twitter:description" content=""/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Data Guide",
+  "url": "https://kirmed419.github.io/blog-docs/",
+  "description": "",
+  "thumbnailUrl": "https://kirmed419.github.io/blog-docs/favicon.ico",
+  "sameAs": [
+      "https://www.facebook.com/kirouane.medus/", "https://www.linkedin.com/in/mohammed-kirouane-60162329b/"
+  ]
+}
+</script>
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://kirmed419.github.io/blog-docs/" accesskey="h" title="Data Guide (Alt + H)">Data Guide</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://kirmed419.github.io/blog-docs/guides" title="Guides">
+                    <span>Guides</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kirmed419.github.io/blog-docs/projects" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kirmed419.github.io/blog-docs/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kirmed419.github.io/blog-docs/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<article class="first-entry home-info">
+    <header class="entry-header">
+        <h1>Hello there, student!</h1>
+    </header>
+    <div class="entry-content">
+        If you&rsquo;re seeking to learn Data Science, you&rsquo;ve come to the right place. You will find detailed guides tailored especially towards ENSSEA students, with hands-on example projects.
+    </div>
+    <footer class="entry-footer">
+        <div class="social-icons" >
+    <a href="https://www.facebook.com/kirouane.medus/" target="_blank" rel="noopener noreferrer me"
+        title="Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+</svg>
+    </a>
+    <a href="https://www.linkedin.com/in/mohammed-kirouane-60162329b/" target="_blank" rel="noopener noreferrer me"
+        title="LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+    </a>
+</div>
+
+    </footer>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Linear Regression
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Linear Regression: Conceptual Overview Linear regression is a statistical method used to model the relationship between two variables. It assumes that there is a linear relationship between the dependent variable (target) and one or more independent variables (features). The goal is to find the best-fitting line through the data points that minimizes the difference between the predicted values and the actual values.
+Conceptual Steps: Data Collection: Gather data for the dependent and independent variables....</p>
+  </div>
+  <footer class="entry-footer">Kirouane Mohammed</footer>
+  <a class="entry-link" aria-label="post link to Linear Regression" href="https://kirmed419.github.io/blog-docs/guides/linreg/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Confusion Matrix, Bias / Variance, ROC/AUC in machine learning
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Confusion Matrix A confusion matrix is a table used to evaluate the performance of a classification model. It summarizes the results of a classification algorithm by showing the counts of true and predicted classifications.
+The confusion matrix typically includes four values:
+True Positives (TP): The number of instances correctly classified as positive. True Negatives (TN): The number of instances correctly classified as negative. False Positives (FP): The number of instances incorrectly classified as positive....</p>
+  </div>
+  <footer class="entry-footer">Kirouane Mohammed</footer>
+  <a class="entry-link" aria-label="post link to Confusion Matrix, Bias / Variance, ROC/AUC in machine learning" href="https://kirmed419.github.io/blog-docs/guides/biasvar/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Cross Validation, and the Train/Test Split
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Cross-Validation and Training/Testing Split Training/Testing Split Concept: The training/testing split is a fundamental concept in machine learning used to evaluate the performance of a model. It involves dividing your dataset into two parts:
+Training Set: This subset of the data is used to train the machine learning model. The model learns from this data and adjusts its parameters accordingly.
+Testing Set: This subset is used to evaluate the model’s performance. After the model has been trained, it is tested on this unseen data to assess how well it generalizes to new, unseen examples....</p>
+  </div>
+  <footer class="entry-footer">Kirouane Mohammed</footer>
+  <a class="entry-link" aria-label="post link to Cross Validation, and the Train/Test Split" href="https://kirmed419.github.io/blog-docs/guides/crossva/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Getting Started with Machine Learning
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Machine Learning (ML) is a subfield of artificial intelligence (AI) focused on developing systems that can learn from data and improve their performance over time without being explicitly programmed. The goal of ML is to enable computers to identify patterns, make decisions, and predict outcomes based on input data.
+Key Concepts in Machine Learning Algorithms: These are the methods or procedures used to analyze data and build models. Common algorithms include linear regression, decision trees, neural networks, and clustering methods....</p>
+  </div>
+  <footer class="entry-footer">Kirouane Mohammed</footer>
+  <a class="entry-link" aria-label="post link to Getting Started with Machine Learning" href="https://kirmed419.github.io/blog-docs/guides/machinelearning/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Getting Started with Matplotlib
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Introduction to Matplotlib Matplotlib is a powerful and versatile Python library used for creating static, animated, and interactive visualizations. It is the foundation for many other plotting libraries, such as Seaborn and Pandas’ plotting capabilities. Matplotlib’s flexibility allows you to create a wide variety of plots, ranging from simple line graphs to complex multi-plot figures.
+Matplotlib primarily operates through two key interfaces: pyplot, which is a state-based interface similar to MATLAB, and an object-oriented interface that gives you more control and customization over your plots....</p>
+  </div>
+  <footer class="entry-footer">Kirouane Mohammed</footer>
+  <a class="entry-link" aria-label="post link to Getting Started with Matplotlib" href="https://kirmed419.github.io/blog-docs/guides/matplotlib/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Getting Started with Pandas
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Introduction to Pandas: The Python Data Analysis Powerhouse Pandas is a powerful open-source data analysis and manipulation library built on top of Python. If you’re familiar with Excel and looking to dive into more robust and scalable data analysis, pandas is a natural next step. While Excel is excellent for small datasets and manual data manipulation, pandas shines when it comes to handling large datasets, automating repetitive tasks, and performing complex data manipulations with just a few lines of code....</p>
+  </div>
+  <footer class="entry-footer">Kirouane Mohammed</footer>
+  <a class="entry-link" aria-label="post link to Getting Started with Pandas" href="https://kirmed419.github.io/blog-docs/guides/pandas/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Getting Started: How to install Python, Jupyter and important Data Science packages.
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Guide to Installing Python and Data Science Packages Step 1: Install Python Before you can start using Python for data science, you need to have Python installed on your system. Here’s how to do it:
+Windows Download the Installer: Go to the official Python website at python.org and download the latest version of Python for Windows. Run the Installer: Double-click the downloaded installer to start the installation process. Customize Installation: When prompted, make sure to check the box that says “Add Python to PATH....</p>
+  </div>
+  <footer class="entry-footer">Kirouane Mohammed</footer>
+  <a class="entry-link" aria-label="post link to Getting Started: How to install Python, Jupyter and important Data Science packages." href="https://kirmed419.github.io/blog-docs/guides/python-install/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Python for Data Science: Overview and Installation
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Python in Data Science: A Comprehensive Overview Why Python is Used in Data Science Python has become the go-to language for data science due to several compelling reasons. First and foremost, Python is known for its simplicity and readability. Its clean and straightforward syntax allows data scientists, who may not always be seasoned programmers, to quickly pick up the language and start applying it to their data-related tasks. This ease of use makes Python accessible to a wide range of professionals, from statisticians to engineers, who may be diving into data science for the first time....</p>
+  </div>
+  <footer class="entry-footer">Kirouane Mohammed</footer>
+  <a class="entry-link" aria-label="post link to Python for Data Science: Overview and Installation" href="https://kirmed419.github.io/blog-docs/guides/python/"></a>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="https://kirmed419.github.io/blog-docs/">Data Guide</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Confusion Matrix, Bias / Variance, ROC/AUC in machine learning | Data Guide</title>
+<meta name="keywords" content="machine learning, concept">
+<meta name="description" content="Learn about Confusion Matrices, the Bias/Variance trade off and AUC/ROC in machine learning.">
+<meta name="author" content="Kirouane Mohammed">
+<link rel="canonical" href="https://kirmed419.github.io/blog-docs/guides/biasvar/">
+<link crossorigin="anonymous" href="/blog-docs/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://kirmed419.github.io/blog-docs/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://kirmed419.github.io/blog-docs/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://kirmed419.github.io/blog-docs/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://kirmed419.github.io/blog-docs/apple-touch-icon.png">
+<link rel="mask-icon" href="https://kirmed419.github.io/blog-docs/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Confusion Matrix, Bias / Variance, ROC/AUC in machine learning" />
+<meta property="og:description" content="Learn about Confusion Matrices, the Bias/Variance trade off and AUC/ROC in machine learning." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kirmed419.github.io/blog-docs/guides/biasvar/" /><meta property="article:section" content="guides" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Confusion Matrix, Bias / Variance, ROC/AUC in machine learning"/>
+<meta name="twitter:description" content="Learn about Confusion Matrices, the Bias/Variance trade off and AUC/ROC in machine learning."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Guides",
+      "item": "https://kirmed419.github.io/blog-docs/guides/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Confusion Matrix, Bias / Variance, ROC/AUC in machine learning",
+      "item": "https://kirmed419.github.io/blog-docs/guides/biasvar/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Confusion Matrix, Bias / Variance, ROC/AUC in machine learning",
+  "name": "Confusion Matrix, Bias \/ Variance, ROC\/AUC in machine learning",
+  "description": "Learn about Confusion Matrices, the Bias/Variance trade off and AUC/ROC in machine learning.",
+  "keywords": [
+    "machine learning", "concept"
+  ],
+  "articleBody": "Confusion Matrix A confusion matrix is a table used to evaluate the performance of a classification model. It summarizes the results of a classification algorithm by showing the counts of true and predicted classifications.\nThe confusion matrix typically includes four values:\nTrue Positives (TP): The number of instances correctly classified as positive. True Negatives (TN): The number of instances correctly classified as negative. False Positives (FP): The number of instances incorrectly classified as positive. False Negatives (FN): The number of instances incorrectly classified as negative. Example: Suppose you have a model to classify whether an email is spam (positive) or not spam (negative). After evaluating the model, you might get a confusion matrix like this:\nTP = 50 (50 spam emails correctly classified as spam) TN = 40 (40 not spam emails correctly classified as not spam) FP = 10 (10 not spam emails incorrectly classified as spam) FN = 5 (5 spam emails incorrectly classified as not spam) Bias Bias refers to the error introduced by approximating a real-world problem, which may be complex, by a simplified model. High bias means the model is too simplistic and can’t capture the underlying patterns in the data well, leading to systematic errors.\nExample: Imagine you’re using a linear regression model to predict house prices based only on the size of the house. The true relationship between house prices and features might be more complex, involving factors like location, age of the house, and amenities.\nHigh Bias Example: If your model is only using the size of the house to predict prices (a simple linear model), it might consistently make errors because it doesn’t consider other important factors. This would be a high bias scenario where the model is too simplistic and can’t capture the true relationship. Variance Variance refers to the error introduced by the model’s sensitivity to small fluctuations in the training data. High variance means the model is too complex and captures noise or random fluctuations in the training data rather than the actual underlying patterns.\nExample: Now, imagine you’re using a very flexible model, like a high-degree polynomial regression, to predict house prices based on the size of the house. This model can fit the training data very well, including noise and outliers.\nHigh Variance Example: If your model fits the training data perfectly but performs poorly on new, unseen data, it indicates high variance. The model has learned the noise in the training data rather than the actual trend, leading to overfitting. Balancing Bias and Variance The goal in machine learning is to find a model that balances bias and variance to minimize the total error. This balance ensures that the model is complex enough to capture the underlying patterns (low bias) but not so complex that it overfits the training data (low variance).\nROC (Receiver Operating Characteristic) Curve The ROC curve is a graphical representation that shows the performance of a binary classification model across different threshold values. It plots the True Positive Rate (TPR) against the False Positive Rate (FPR).\nTrue Positive Rate (TPR), also known as Sensitivity or Recall, is the proportion of actual positives correctly identified by the model. False Positive Rate (FPR) is the proportion of actual negatives incorrectly identified as positives. Example: Imagine you’re developing a model to classify emails as spam or not spam. By adjusting the decision threshold for classifying an email as spam, you can observe how the TPR and FPR change.\nROC Curve Example: If the ROC curve is closer to the top-left corner, it indicates better performance, as the model has a high TPR and a low FPR. AUC (Area Under the ROC Curve) AUC stands for “Area Under the ROC Curve.” It is a single scalar value that summarizes the performance of the classification model across all possible threshold values. The AUC value ranges from 0 to 1:\nAUC = 1: Perfect model with no false positives or false negatives. AUC = 0.5: Model performs no better than random guessing. AUC \u003c 0.5: Model performs worse than random guessing. Example: Using the spam email classifier example, if the AUC is 0.85, it means the model has a good ability to distinguish between spam and not spam emails.\nSummary ROC Curve: Shows the trade-off between TPR and FPR at various thresholds. It helps to visualize the performance of a model. AUC: Provides a single metric to evaluate the overall performance of the model, summarizing the ROC curve. The goal is to have a model with a high AUC, indicating better performance in distinguishing between classes.\n",
+  "wordCount" : "759",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":[{
+    "@type": "Person",
+    "name": "Kirouane Mohammed"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kirmed419.github.io/blog-docs/guides/biasvar/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data Guide",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://kirmed419.github.io/blog-docs/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://kirmed419.github.io/blog-docs/" accesskey="h" title="Data Guide (Alt + H)">Data Guide</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://kirmed419.github.io/blog-docs/guides" title="Guides">
+                    <span>Guides</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kirmed419.github.io/blog-docs/projects" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kirmed419.github.io/blog-docs/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kirmed419.github.io/blog-docs/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Confusion Matrix, Bias / Variance, ROC/AUC in machine learning
+    </h1>
+    <div class="post-description">
+      Learn about Confusion Matrices, the Bias/Variance trade off and AUC/ROC in machine learning.
+    </div>
+    <div class="post-meta">Kirouane Mohammed
+
+</div>
+  </header> 
+  <div class="post-content"><h3 id="confusion-matrix">Confusion Matrix<a hidden class="anchor" aria-hidden="true" href="#confusion-matrix">#</a></h3>
+<p>A <strong>confusion matrix</strong> is a table used to evaluate the performance of a classification model. It summarizes the results of a classification algorithm by showing the counts of true and predicted classifications.</p>
+<p>The confusion matrix typically includes four values:</p>
+<ul>
+<li><strong>True Positives (TP)</strong>: The number of instances correctly classified as positive.</li>
+<li><strong>True Negatives (TN)</strong>: The number of instances correctly classified as negative.</li>
+<li><strong>False Positives (FP)</strong>: The number of instances incorrectly classified as positive.</li>
+<li><strong>False Negatives (FN)</strong>: The number of instances incorrectly classified as negative.</li>
+</ul>
+<h4 id="example">Example:<a hidden class="anchor" aria-hidden="true" href="#example">#</a></h4>
+<p>Suppose you have a model to classify whether an email is spam (positive) or not spam (negative). After evaluating the model, you might get a confusion matrix like this:</p>
+<ul>
+<li><strong>TP = 50</strong> (50 spam emails correctly classified as spam)</li>
+<li><strong>TN = 40</strong> (40 not spam emails correctly classified as not spam)</li>
+<li><strong>FP = 10</strong> (10 not spam emails incorrectly classified as spam)</li>
+<li><strong>FN = 5</strong> (5 spam emails incorrectly classified as not spam)</li>
+</ul>
+<h3 id="bias">Bias<a hidden class="anchor" aria-hidden="true" href="#bias">#</a></h3>
+<p><strong>Bias</strong> refers to the error introduced by approximating a real-world problem, which may be complex, by a simplified model. High bias means the model is too simplistic and can&rsquo;t capture the underlying patterns in the data well, leading to systematic errors.</p>
+<h4 id="example-1">Example:<a hidden class="anchor" aria-hidden="true" href="#example-1">#</a></h4>
+<p>Imagine you&rsquo;re using a linear regression model to predict house prices based only on the size of the house. The true relationship between house prices and features might be more complex, involving factors like location, age of the house, and amenities.</p>
+<ul>
+<li><strong>High Bias Example:</strong> If your model is only using the size of the house to predict prices (a simple linear model), it might consistently make errors because it doesn&rsquo;t consider other important factors. This would be a high bias scenario where the model is too simplistic and can&rsquo;t capture the true relationship.</li>
+</ul>
+<h3 id="variance">Variance<a hidden class="anchor" aria-hidden="true" href="#variance">#</a></h3>
+<p><strong>Variance</strong> refers to the error introduced by the model&rsquo;s sensitivity to small fluctuations in the training data. High variance means the model is too complex and captures noise or random fluctuations in the training data rather than the actual underlying patterns.</p>
+<h4 id="example-2">Example:<a hidden class="anchor" aria-hidden="true" href="#example-2">#</a></h4>
+<p>Now, imagine you&rsquo;re using a very flexible model, like a high-degree polynomial regression, to predict house prices based on the size of the house. This model can fit the training data very well, including noise and outliers.</p>
+<ul>
+<li><strong>High Variance Example:</strong> If your model fits the training data perfectly but performs poorly on new, unseen data, it indicates high variance. The model has learned the noise in the training data rather than the actual trend, leading to overfitting.</li>
+</ul>
+<h3 id="balancing-bias-and-variance">Balancing Bias and Variance<a hidden class="anchor" aria-hidden="true" href="#balancing-bias-and-variance">#</a></h3>
+<p>The goal in machine learning is to find a model that balances bias and variance to minimize the total error. This balance ensures that the model is complex enough to capture the underlying patterns (low bias) but not so complex that it overfits the training data (low variance).</p>
+<h3 id="roc-receiver-operating-characteristic-curve">ROC (Receiver Operating Characteristic) Curve<a hidden class="anchor" aria-hidden="true" href="#roc-receiver-operating-characteristic-curve">#</a></h3>
+<p>The <strong>ROC curve</strong> is a graphical representation that shows the performance of a binary classification model across different threshold values. It plots the True Positive Rate (TPR) against the False Positive Rate (FPR).</p>
+<ul>
+<li><strong>True Positive Rate (TPR)</strong>, also known as Sensitivity or Recall, is the proportion of actual positives correctly identified by the model.</li>
+<li><strong>False Positive Rate (FPR)</strong> is the proportion of actual negatives incorrectly identified as positives.</li>
+</ul>
+<h4 id="example-3">Example:<a hidden class="anchor" aria-hidden="true" href="#example-3">#</a></h4>
+<p>Imagine you&rsquo;re developing a model to classify emails as spam or not spam. By adjusting the decision threshold for classifying an email as spam, you can observe how the TPR and FPR change.</p>
+<ul>
+<li><strong>ROC Curve Example:</strong> If the ROC curve is closer to the top-left corner, it indicates better performance, as the model has a high TPR and a low FPR.</li>
+</ul>
+<h3 id="auc-area-under-the-roc-curve">AUC (Area Under the ROC Curve)<a hidden class="anchor" aria-hidden="true" href="#auc-area-under-the-roc-curve">#</a></h3>
+<p><strong>AUC</strong> stands for &ldquo;Area Under the ROC Curve.&rdquo; It is a single scalar value that summarizes the performance of the classification model across all possible threshold values. The AUC value ranges from 0 to 1:</p>
+<ul>
+<li><strong>AUC = 1:</strong> Perfect model with no false positives or false negatives.</li>
+<li><strong>AUC = 0.5:</strong> Model performs no better than random guessing.</li>
+<li><strong>AUC &lt; 0.5:</strong> Model performs worse than random guessing.</li>
+</ul>
+<h4 id="example-4">Example:<a hidden class="anchor" aria-hidden="true" href="#example-4">#</a></h4>
+<p>Using the spam email classifier example, if the AUC is 0.85, it means the model has a good ability to distinguish between spam and not spam emails.</p>
+<h3 id="summary">Summary<a hidden class="anchor" aria-hidden="true" href="#summary">#</a></h3>
+<ul>
+<li><strong>ROC Curve</strong>: Shows the trade-off between TPR and FPR at various thresholds. It helps to visualize the performance of a model.</li>
+<li><strong>AUC</strong>: Provides a single metric to evaluate the overall performance of the model, summarizing the ROC curve.</li>
+</ul>
+<p>The goal is to have a model with a high AUC, indicating better performance in distinguishing between classes.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://kirmed419.github.io/blog-docs/tags/machine-learning/">machine learning</a></li>
+      <li><a href="https://kirmed419.github.io/blog-docs/tags/concept/">concept</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="https://kirmed419.github.io/blog-docs/">Data Guide</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

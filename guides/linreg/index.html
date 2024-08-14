@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Linear Regression | Data Guide</title>
+<meta name="keywords" content="machine learning, concept, algorithm">
+<meta name="description" content="Learn about the most rudimentary Algorithm in Machine Learning.">
+<meta name="author" content="Kirouane Mohammed">
+<link rel="canonical" href="https://kirmed419.github.io/blog-docs/guides/linreg/">
+<link crossorigin="anonymous" href="/blog-docs/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://kirmed419.github.io/blog-docs/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://kirmed419.github.io/blog-docs/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://kirmed419.github.io/blog-docs/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://kirmed419.github.io/blog-docs/apple-touch-icon.png">
+<link rel="mask-icon" href="https://kirmed419.github.io/blog-docs/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Linear Regression" />
+<meta property="og:description" content="Learn about the most rudimentary Algorithm in Machine Learning." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kirmed419.github.io/blog-docs/guides/linreg/" /><meta property="article:section" content="guides" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linear Regression"/>
+<meta name="twitter:description" content="Learn about the most rudimentary Algorithm in Machine Learning."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Guides",
+      "item": "https://kirmed419.github.io/blog-docs/guides/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Linear Regression",
+      "item": "https://kirmed419.github.io/blog-docs/guides/linreg/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Linear Regression",
+  "name": "Linear Regression",
+  "description": "Learn about the most rudimentary Algorithm in Machine Learning.",
+  "keywords": [
+    "machine learning", "concept", "algorithm"
+  ],
+  "articleBody": "Linear Regression: Conceptual Overview Linear regression is a statistical method used to model the relationship between two variables. It assumes that there is a linear relationship between the dependent variable (target) and one or more independent variables (features). The goal is to find the best-fitting line through the data points that minimizes the difference between the predicted values and the actual values.\nConceptual Steps: Data Collection: Gather data for the dependent and independent variables.\nModel Fitting: Determine the line that best fits the data. This line can be represented by the equation:\n$$[ y = \\beta_0 + \\beta_1 x + \\epsilon ]$$\nWhere:\n$$( y )$$ is the dependent variable. $$( x )$$ is the independent variable. $$( \\beta_0 )$$ is the intercept of the line. $$( \\beta_1 )$$ is the slope of the line. $$( \\epsilon )$$ is the error term. Prediction: Use the fitted model to make predictions for new data.\nLinear Regression: Mathematical Explanation In linear regression, the objective is to minimize the sum of squared differences between the observed values and the values predicted by the model. This is done using the Least Squares method.\nObjective Function: Minimize the cost function $$( J(\\beta_0, \\beta_1) )$$, which is defined as:\n$$[ J(\\beta_0, \\beta_1) = \\frac{1}{2m} \\sum_{i=1}^{m} (y_i - (\\beta_0 + \\beta_1 x_i))^2 ]$$\nWhere m is the number of data points.\nFind Parameters: Compute the parameters $$( \\beta_0 ) and ( \\beta_1 )$$ that minimize the cost function. These can be derived using calculus or optimization algorithms.\nPython Implementation Example Here’s a simple implementation of linear regression using Python and the scikit-learn library:\nimport numpy as np from sklearn.linear_model import LinearRegression import matplotlib.pyplot as plt # Sample data X = np.array([[1], [2], [3], [4], [5]]) # Independent variable y = np.array([2, 4, 5, 4, 5]) # Dependent variable # Create and fit the model model = LinearRegression() model.fit(X, y) # Make predictions X_new = np.array([[6], [7]]) y_pred = model.predict(X_new) # Display results print(f\"Intercept: {model.intercept_}\") print(f\"Slope: {model.coef_[0]}\") print(f\"Predictions: {y_pred}\") # Plotting plt.scatter(X, y, color='blue', label='Data Points') plt.plot(X, model.predict(X), color='red', label='Fitted Line') plt.scatter(X_new, y_pred, color='green', label='Predictions') plt.xlabel('X') plt.ylabel('y') plt.legend() plt.show() ",
+  "wordCount" : "351",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":[{
+    "@type": "Person",
+    "name": "Kirouane Mohammed"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kirmed419.github.io/blog-docs/guides/linreg/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data Guide",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://kirmed419.github.io/blog-docs/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://kirmed419.github.io/blog-docs/" accesskey="h" title="Data Guide (Alt + H)">Data Guide</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://kirmed419.github.io/blog-docs/guides" title="Guides">
+                    <span>Guides</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kirmed419.github.io/blog-docs/projects" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kirmed419.github.io/blog-docs/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kirmed419.github.io/blog-docs/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Linear Regression
+    </h1>
+    <div class="post-description">
+      Learn about the most rudimentary Algorithm in Machine Learning.
+    </div>
+    <div class="post-meta">Kirouane Mohammed
+
+</div>
+  </header> 
+  <div class="post-content"><h3 id="linear-regression-conceptual-overview">Linear Regression: Conceptual Overview<a hidden class="anchor" aria-hidden="true" href="#linear-regression-conceptual-overview">#</a></h3>
+<p>Linear regression is a statistical method used to model the relationship between two variables. It assumes that there is a linear relationship between the dependent variable (target) and one or more independent variables (features). The goal is to find the best-fitting line through the data points that minimizes the difference between the predicted values and the actual values.</p>
+<h4 id="conceptual-steps">Conceptual Steps:<a hidden class="anchor" aria-hidden="true" href="#conceptual-steps">#</a></h4>
+<ol>
+<li>
+<p><strong>Data Collection</strong>: Gather data for the dependent and independent variables.</p>
+</li>
+<li>
+<p><strong>Model Fitting</strong>: Determine the line that best fits the data. This line can be represented by the equation:</p>
+<p>$$[ y = \beta_0 + \beta_1 x + \epsilon ]$$</p>
+<p>Where:</p>
+<ul>
+<li>$$( y )$$ is the dependent variable.</li>
+<li>$$( x )$$ is the independent variable.</li>
+<li>$$( \beta_0 )$$ is the intercept of the line.</li>
+<li>$$( \beta_1 )$$ is the slope of the line.</li>
+<li>$$( \epsilon )$$ is the error term.</li>
+</ul>
+</li>
+<li>
+<p><strong>Prediction</strong>: Use the fitted model to make predictions for new data.</p>
+</li>
+</ol>
+<h3 id="linear-regression-mathematical-explanation">Linear Regression: Mathematical Explanation<a hidden class="anchor" aria-hidden="true" href="#linear-regression-mathematical-explanation">#</a></h3>
+<p>In linear regression, the objective is to minimize the sum of squared differences between the observed values and the values predicted by the model. This is done using the Least Squares method.</p>
+<ol>
+<li>
+<p><strong>Objective Function</strong>: Minimize the cost function $$( J(\beta_0, \beta_1) )$$, which is defined as:</p>
+<p>$$[ J(\beta_0, \beta_1) = \frac{1}{2m} \sum_{i=1}^{m} (y_i - (\beta_0 + \beta_1 x_i))^2 ]$$</p>
+<p>Where  m  is the number of data points.</p>
+</li>
+<li>
+<p><strong>Find Parameters</strong>: Compute the parameters $$( \beta_0 ) and ( \beta_1 )$$ that minimize the cost function. These can be derived using calculus or optimization algorithms.</p>
+</li>
+</ol>
+<h3 id="python-implementation-example">Python Implementation Example<a hidden class="anchor" aria-hidden="true" href="#python-implementation-example">#</a></h3>
+<p>Here&rsquo;s a simple implementation of linear regression using Python and the <code>scikit-learn</code> library:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LinearRegression
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Sample data</span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([[<span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">2</span>], [<span style="color:#ae81ff">3</span>], [<span style="color:#ae81ff">4</span>], [<span style="color:#ae81ff">5</span>]])  <span style="color:#75715e"># Independent variable</span>
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>])             <span style="color:#75715e"># Dependent variable</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create and fit the model</span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> LinearRegression()
+</span></span><span style="display:flex;"><span>model<span style="color:#f92672">.</span>fit(X, y)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Make predictions</span>
+</span></span><span style="display:flex;"><span>X_new <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([[<span style="color:#ae81ff">6</span>], [<span style="color:#ae81ff">7</span>]])
+</span></span><span style="display:flex;"><span>y_pred <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_new)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Display results</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Intercept: </span><span style="color:#e6db74">{</span>model<span style="color:#f92672">.</span>intercept_<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Slope: </span><span style="color:#e6db74">{</span>model<span style="color:#f92672">.</span>coef_[<span style="color:#ae81ff">0</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Predictions: </span><span style="color:#e6db74">{</span>y_pred<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Plotting</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(X, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;blue&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Data Points&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(X, model<span style="color:#f92672">.</span>predict(X), color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;red&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Fitted Line&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(X_new, y_pred, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;green&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Predictions&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;y&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://kirmed419.github.io/blog-docs/tags/machine-learning/">machine learning</a></li>
+      <li><a href="https://kirmed419.github.io/blog-docs/tags/concept/">concept</a></li>
+      <li><a href="https://kirmed419.github.io/blog-docs/tags/algorithm/">algorithm</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="https://kirmed419.github.io/blog-docs/">Data Guide</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

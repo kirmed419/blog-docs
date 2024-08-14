@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Getting Started with Matplotlib | Data Guide</title>
+<meta name="keywords" content="programming, python, matplotlib, data representation">
+<meta name="description" content="Learn about Matplotlib.">
+<meta name="author" content="Kirouane Mohammed">
+<link rel="canonical" href="https://kirmed419.github.io/blog-docs/guides/matplotlib/">
+<link crossorigin="anonymous" href="/blog-docs/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://kirmed419.github.io/blog-docs/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://kirmed419.github.io/blog-docs/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://kirmed419.github.io/blog-docs/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://kirmed419.github.io/blog-docs/apple-touch-icon.png">
+<link rel="mask-icon" href="https://kirmed419.github.io/blog-docs/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Getting Started with Matplotlib" />
+<meta property="og:description" content="Learn about Matplotlib." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kirmed419.github.io/blog-docs/guides/matplotlib/" /><meta property="article:section" content="guides" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Getting Started with Matplotlib"/>
+<meta name="twitter:description" content="Learn about Matplotlib."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Guides",
+      "item": "https://kirmed419.github.io/blog-docs/guides/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Getting Started with Matplotlib",
+      "item": "https://kirmed419.github.io/blog-docs/guides/matplotlib/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Getting Started with Matplotlib",
+  "name": "Getting Started with Matplotlib",
+  "description": "Learn about Matplotlib.",
+  "keywords": [
+    "programming", "python", "matplotlib", "data representation"
+  ],
+  "articleBody": "Introduction to Matplotlib Matplotlib is a powerful and versatile Python library used for creating static, animated, and interactive visualizations. It is the foundation for many other plotting libraries, such as Seaborn and Pandas’ plotting capabilities. Matplotlib’s flexibility allows you to create a wide variety of plots, ranging from simple line graphs to complex multi-plot figures.\nMatplotlib primarily operates through two key interfaces: pyplot, which is a state-based interface similar to MATLAB, and an object-oriented interface that gives you more control and customization over your plots.\nWhether you’re visualizing simple data or creating intricate visual representations, Matplotlib provides the tools needed to effectively communicate your data’s story.\nMatplotlib Guide Importing and Setup import matplotlib.pyplot as plt import numpy as np Basic Plotting # Simple line plot x = np.linspace(0, 10, 100) y = np.sin(x) plt.plot(x, y) plt.show() Figure and Axes # Create a figure and a set of subplots (axes) fig, ax = plt.subplots() # Multiple subplots fig, axs = plt.subplots(2, 2) # 2x2 grid of subplots Customizing Plots # Title and labels plt.plot(x, y) plt.title('Sine Wave') plt.xlabel('X axis') plt.ylabel('Y axis') # Grid plt.grid(True) # Limits plt.xlim(0, 10) plt.ylim(-1, 1) # Legends plt.plot(x, y, label='Sine') plt.plot(x, np.cos(x), label='Cosine') plt.legend() # Saving a plot plt.savefig('plot.png') Plot Types Line Plot plt.plot(x, y) Scatter Plot x = np.random.rand(50) y = np.random.rand(50) plt.scatter(x, y) Bar Plot categories = ['A', 'B', 'C'] values = [1, 4, 2] plt.bar(categories, values) Histogram data = np.random.randn(1000) plt.hist(data, bins=30) Box Plot data = [np.random.randn(100) for _ in range(4)] plt.boxplot(data) Pie Chart labels = ['A', 'B', 'C'] sizes = [50, 25, 25] plt.pie(sizes, labels=labels, autopct='%1.1f%%') Heatmap data = np.random.rand(10, 10) plt.imshow(data, cmap='hot', interpolation='nearest') plt.colorbar() Customizing Appearance Line Styles and Colors plt.plot(x, y, color='red', linestyle='--', linewidth=2) Markers plt.plot(x, y, marker='o', markersize=5, markerfacecolor='blue') Customizing Ticks plt.plot(x, y) plt.xticks(np.arange(0, 11, step=1)) plt.yticks(np.arange(-1, 1.5, step=0.5)) Subplot Adjustments fig, axs = plt.subplots(2, 1) plt.subplots_adjust(hspace=0.5, wspace=0.5) Adding Text plt.plot(x, y) plt.text(5, 0, 'Center', fontsize=12, ha='center') Working with Dates import matplotlib.dates as mdates import datetime dates = [datetime.datetime(2023, 1, i+1) for i in range(10)] values = np.random.randn(10) plt.plot(dates, values) plt.gcf().autofmt_xdate() # Rotate dates plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d')) Logarithmic and Polar Plots # Logarithmic scale plt.plot(x, y) plt.yscale('log') # Polar plot theta = np.linspace(0, 2 * np.pi, 100) r = np.abs(np.sin(theta)) plt.polar(theta, r) Advanced Features Twin Axes fig, ax1 = plt.subplots() ax2 = ax1.twinx() ax1.plot(x, y, 'g-') ax2.plot(x, np.cos(x), 'b-') ax1.set_xlabel('X data') ax1.set_ylabel('Sine', color='g') ax2.set_ylabel('Cosine', color='b') Inset Plots fig, ax = plt.subplots() ax.plot(x, y) # Inset plot ax_inset = fig.add_axes([0.5, 0.5, 0.4, 0.4]) ax_inset.plot(x, np.cos(x)) 3D Plotting from mpl_toolkits.mplot3d import Axes3D fig = plt.figure() ax = fig.add_subplot(111, projection='3d') x = np.linspace(-5, 5, 100) y = np.linspace(-5, 5, 100) X, Y = np.meshgrid(x, y) Z = np.sin(np.sqrt(X**2 + Y**2)) ax.plot_surface(X, Y, Z, cmap='viridis') Styles and Themes # Use a built-in style plt.style.use('ggplot') # List available styles plt.style.available Interactive Plotting with plt.show() # Interactive mode plt.ion() # Non-blocking show plt.show(block=False) # Turn off interactive mode plt.ioff() Annotating Plots plt.plot(x, y) plt.annotate('Max Value', xy=(np.pi/2, 1), xytext=(np.pi, 0.5), arrowprops=dict(facecolor='black', shrink=0.05)) Configuring Matplotlib # Set default figure size plt.rcParams['figure.figsize'] = [10, 5] # Set default DPI plt.rcParams['figure.dpi'] = 100 # Change font size plt.rcParams['font.size'] = 12 Saving Plots # Save figure plt.savefig('plot.png') # Save with different DPI plt.savefig('plot.png', dpi=300) # Save in different formats (e.g., PDF) plt.savefig('plot.pdf') ",
+  "wordCount" : "540",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":[{
+    "@type": "Person",
+    "name": "Kirouane Mohammed"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kirmed419.github.io/blog-docs/guides/matplotlib/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data Guide",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://kirmed419.github.io/blog-docs/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://kirmed419.github.io/blog-docs/" accesskey="h" title="Data Guide (Alt + H)">Data Guide</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://kirmed419.github.io/blog-docs/guides" title="Guides">
+                    <span>Guides</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kirmed419.github.io/blog-docs/projects" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kirmed419.github.io/blog-docs/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kirmed419.github.io/blog-docs/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Getting Started with Matplotlib
+    </h1>
+    <div class="post-description">
+      Learn about Matplotlib.
+    </div>
+    <div class="post-meta">Kirouane Mohammed
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="introduction-to-matplotlib">Introduction to Matplotlib<a hidden class="anchor" aria-hidden="true" href="#introduction-to-matplotlib">#</a></h1>
+<p>Matplotlib is a powerful and versatile Python library used for creating static, animated, and interactive visualizations. It is the foundation for many other plotting libraries, such as Seaborn and Pandas&rsquo; plotting capabilities. Matplotlib&rsquo;s flexibility allows you to create a wide variety of plots, ranging from simple line graphs to complex multi-plot figures.</p>
+<p>Matplotlib primarily operates through two key interfaces: <code>pyplot</code>, which is a state-based interface similar to MATLAB, and an object-oriented interface that gives you more control and customization over your plots.</p>
+<p>Whether you&rsquo;re visualizing simple data or creating intricate visual representations, Matplotlib provides the tools needed to effectively communicate your data&rsquo;s story.</p>
+<h1 id="matplotlib-guide">Matplotlib Guide<a hidden class="anchor" aria-hidden="true" href="#matplotlib-guide">#</a></h1>
+<h2 id="importing-and-setup">Importing and Setup<a hidden class="anchor" aria-hidden="true" href="#importing-and-setup">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span></code></pre></div><h2 id="basic-plotting">Basic Plotting<a hidden class="anchor" aria-hidden="true" href="#basic-plotting">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Simple line plot</span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sin(x)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x, y)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><h2 id="figure-and-axes">Figure and Axes<a hidden class="anchor" aria-hidden="true" href="#figure-and-axes">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Create a figure and a set of subplots (axes)</span>
+</span></span><span style="display:flex;"><span>fig, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Multiple subplots</span>
+</span></span><span style="display:flex;"><span>fig, axs <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>)  <span style="color:#75715e"># 2x2 grid of subplots</span>
+</span></span></code></pre></div><h2 id="customizing-plots">Customizing Plots<a hidden class="anchor" aria-hidden="true" href="#customizing-plots">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Title and labels</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x, y)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;Sine Wave&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;X axis&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;Y axis&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Grid</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>grid(<span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Limits</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xlim(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>ylim(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Legends</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x, y, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Sine&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x, np<span style="color:#f92672">.</span>cos(x), label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Cosine&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Saving a plot</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>savefig(<span style="color:#e6db74">&#39;plot.png&#39;</span>)
+</span></span></code></pre></div><h2 id="plot-types">Plot Types<a hidden class="anchor" aria-hidden="true" href="#plot-types">#</a></h2>
+<h3 id="line-plot">Line Plot<a hidden class="anchor" aria-hidden="true" href="#line-plot">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x, y)
+</span></span></code></pre></div><h3 id="scatter-plot">Scatter Plot<a hidden class="anchor" aria-hidden="true" href="#scatter-plot">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>rand(<span style="color:#ae81ff">50</span>)
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>rand(<span style="color:#ae81ff">50</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(x, y)
+</span></span></code></pre></div><h3 id="bar-plot">Bar Plot<a hidden class="anchor" aria-hidden="true" href="#bar-plot">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>categories <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;A&#39;</span>, <span style="color:#e6db74">&#39;B&#39;</span>, <span style="color:#e6db74">&#39;C&#39;</span>]
+</span></span><span style="display:flex;"><span>values <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">2</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>bar(categories, values)
+</span></span></code></pre></div><h3 id="histogram">Histogram<a hidden class="anchor" aria-hidden="true" href="#histogram">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>data <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randn(<span style="color:#ae81ff">1000</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>hist(data, bins<span style="color:#f92672">=</span><span style="color:#ae81ff">30</span>)
+</span></span></code></pre></div><h3 id="box-plot">Box Plot<a hidden class="anchor" aria-hidden="true" href="#box-plot">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>data <span style="color:#f92672">=</span> [np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randn(<span style="color:#ae81ff">100</span>) <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">4</span>)]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>boxplot(data)
+</span></span></code></pre></div><h3 id="pie-chart">Pie Chart<a hidden class="anchor" aria-hidden="true" href="#pie-chart">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>labels <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;A&#39;</span>, <span style="color:#e6db74">&#39;B&#39;</span>, <span style="color:#e6db74">&#39;C&#39;</span>]
+</span></span><span style="display:flex;"><span>sizes <span style="color:#f92672">=</span> [<span style="color:#ae81ff">50</span>, <span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">25</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>pie(sizes, labels<span style="color:#f92672">=</span>labels, autopct<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%1.1f%%</span><span style="color:#e6db74">&#39;</span>)
+</span></span></code></pre></div><h3 id="heatmap">Heatmap<a hidden class="anchor" aria-hidden="true" href="#heatmap">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>data <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>rand(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>imshow(data, cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;hot&#39;</span>, interpolation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;nearest&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>colorbar()
+</span></span></code></pre></div><h2 id="customizing-appearance">Customizing Appearance<a hidden class="anchor" aria-hidden="true" href="#customizing-appearance">#</a></h2>
+<h3 id="line-styles-and-colors">Line Styles and Colors<a hidden class="anchor" aria-hidden="true" href="#line-styles-and-colors">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;red&#39;</span>, linestyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;--&#39;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
+</span></span></code></pre></div><h3 id="markers">Markers<a hidden class="anchor" aria-hidden="true" href="#markers">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x, y, marker<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;o&#39;</span>, markersize<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>, markerfacecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;blue&#39;</span>)
+</span></span></code></pre></div><h3 id="customizing-ticks">Customizing Ticks<a hidden class="anchor" aria-hidden="true" href="#customizing-ticks">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x, y)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xticks(np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">11</span>, step<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>yticks(np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1.5</span>, step<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>))
+</span></span></code></pre></div><h3 id="subplot-adjustments">Subplot Adjustments<a hidden class="anchor" aria-hidden="true" href="#subplot-adjustments">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>fig, axs <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>subplots_adjust(hspace<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>, wspace<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>)
+</span></span></code></pre></div><h3 id="adding-text">Adding Text<a hidden class="anchor" aria-hidden="true" href="#adding-text">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x, y)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>text(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#39;Center&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>, ha<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;center&#39;</span>)
+</span></span></code></pre></div><h2 id="working-with-dates">Working with Dates<a hidden class="anchor" aria-hidden="true" href="#working-with-dates">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.dates <span style="color:#66d9ef">as</span> mdates
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> datetime
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>dates <span style="color:#f92672">=</span> [datetime<span style="color:#f92672">.</span>datetime(<span style="color:#ae81ff">2023</span>, <span style="color:#ae81ff">1</span>, i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>)]
+</span></span><span style="display:flex;"><span>values <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randn(<span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(dates, values)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>gcf()<span style="color:#f92672">.</span>autofmt_xdate()  <span style="color:#75715e"># Rotate dates</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>gca()<span style="color:#f92672">.</span>xaxis<span style="color:#f92672">.</span>set_major_formatter(mdates<span style="color:#f92672">.</span>DateFormatter(<span style="color:#e6db74">&#39;%Y-%m-</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">&#39;</span>))
+</span></span></code></pre></div><h2 id="logarithmic-and-polar-plots">Logarithmic and Polar Plots<a hidden class="anchor" aria-hidden="true" href="#logarithmic-and-polar-plots">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Logarithmic scale</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x, y)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>yscale(<span style="color:#e6db74">&#39;log&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Polar plot</span>
+</span></span><span style="display:flex;"><span>theta <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>pi, <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>r <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>abs(np<span style="color:#f92672">.</span>sin(theta))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>polar(theta, r)
+</span></span></code></pre></div><h2 id="advanced-features">Advanced Features<a hidden class="anchor" aria-hidden="true" href="#advanced-features">#</a></h2>
+<h3 id="twin-axes">Twin Axes<a hidden class="anchor" aria-hidden="true" href="#twin-axes">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>fig, ax1 <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax2 <span style="color:#f92672">=</span> ax1<span style="color:#f92672">.</span>twinx()
+</span></span><span style="display:flex;"><span>ax1<span style="color:#f92672">.</span>plot(x, y, <span style="color:#e6db74">&#39;g-&#39;</span>)
+</span></span><span style="display:flex;"><span>ax2<span style="color:#f92672">.</span>plot(x, np<span style="color:#f92672">.</span>cos(x), <span style="color:#e6db74">&#39;b-&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax1<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X data&#39;</span>)
+</span></span><span style="display:flex;"><span>ax1<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Sine&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
+</span></span><span style="display:flex;"><span>ax2<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Cosine&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;b&#39;</span>)
+</span></span></code></pre></div><h3 id="inset-plots">Inset Plots<a hidden class="anchor" aria-hidden="true" href="#inset-plots">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>fig, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots()
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot(x, y)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Inset plot</span>
+</span></span><span style="display:flex;"><span>ax_inset <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_axes([<span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">0.4</span>, <span style="color:#ae81ff">0.4</span>])
+</span></span><span style="display:flex;"><span>ax_inset<span style="color:#f92672">.</span>plot(x, np<span style="color:#f92672">.</span>cos(x))
+</span></span></code></pre></div><h3 id="3d-plotting">3D Plotting<a hidden class="anchor" aria-hidden="true" href="#3d-plotting">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> mpl_toolkits.mplot3d <span style="color:#f92672">import</span> Axes3D
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure()
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>, projection<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;3d&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>X, Y <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>meshgrid(x, y)
+</span></span><span style="display:flex;"><span>Z <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sin(np<span style="color:#f92672">.</span>sqrt(X<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> Y<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot_surface(X, Y, Z, cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;viridis&#39;</span>)
+</span></span></code></pre></div><h2 id="styles-and-themes">Styles and Themes<a hidden class="anchor" aria-hidden="true" href="#styles-and-themes">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Use a built-in style</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>style<span style="color:#f92672">.</span>use(<span style="color:#e6db74">&#39;ggplot&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># List available styles</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>style<span style="color:#f92672">.</span>available
+</span></span></code></pre></div><h2 id="interactive-plotting-with-pltshow">Interactive Plotting with <code>plt.show()</code><a hidden class="anchor" aria-hidden="true" href="#interactive-plotting-with-pltshow">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Interactive mode</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>ion()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Non-blocking show</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show(block<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Turn off interactive mode</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>ioff()
+</span></span></code></pre></div><h2 id="annotating-plots">Annotating Plots<a hidden class="anchor" aria-hidden="true" href="#annotating-plots">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x, y)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>annotate(<span style="color:#e6db74">&#39;Max Value&#39;</span>, xy<span style="color:#f92672">=</span>(np<span style="color:#f92672">.</span>pi<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>), xytext<span style="color:#f92672">=</span>(np<span style="color:#f92672">.</span>pi, <span style="color:#ae81ff">0.5</span>),
+</span></span><span style="display:flex;"><span>             arrowprops<span style="color:#f92672">=</span>dict(facecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>, shrink<span style="color:#f92672">=</span><span style="color:#ae81ff">0.05</span>))
+</span></span></code></pre></div><h2 id="configuring-matplotlib">Configuring Matplotlib<a hidden class="anchor" aria-hidden="true" href="#configuring-matplotlib">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Set default figure size</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>rcParams[<span style="color:#e6db74">&#39;figure.figsize&#39;</span>] <span style="color:#f92672">=</span> [<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">5</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set default DPI</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>rcParams[<span style="color:#e6db74">&#39;figure.dpi&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Change font size</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>rcParams[<span style="color:#e6db74">&#39;font.size&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">12</span>
+</span></span></code></pre></div><h2 id="saving-plots">Saving Plots<a hidden class="anchor" aria-hidden="true" href="#saving-plots">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Save figure</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>savefig(<span style="color:#e6db74">&#39;plot.png&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Save with different DPI</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>savefig(<span style="color:#e6db74">&#39;plot.png&#39;</span>, dpi<span style="color:#f92672">=</span><span style="color:#ae81ff">300</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Save in different formats (e.g., PDF)</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>savefig(<span style="color:#e6db74">&#39;plot.pdf&#39;</span>)
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://kirmed419.github.io/blog-docs/tags/programming/">programming</a></li>
+      <li><a href="https://kirmed419.github.io/blog-docs/tags/python/">python</a></li>
+      <li><a href="https://kirmed419.github.io/blog-docs/tags/matplotlib/">matplotlib</a></li>
+      <li><a href="https://kirmed419.github.io/blog-docs/tags/data-representation/">data representation</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="https://kirmed419.github.io/blog-docs/">Data Guide</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

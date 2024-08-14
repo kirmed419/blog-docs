@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on Data Guide</title>
+    <link>https://kirmed419.github.io/blog-docs/tags/</link>
+    <description>Recent content in Tags on Data Guide</description>
+    <generator>Hugo -- 0.121.2</generator>
+    <language>en-us</language>
+    <atom:link href="https://kirmed419.github.io/blog-docs/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>algorithm</title>
+      <link>https://kirmed419.github.io/blog-docs/tags/algorithm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://kirmed419.github.io/blog-docs/tags/algorithm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>concept</title>
+      <link>https://kirmed419.github.io/blog-docs/tags/concept/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://kirmed419.github.io/blog-docs/tags/concept/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>data preprocessing</title>
+      <link>https://kirmed419.github.io/blog-docs/tags/data-preprocessing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://kirmed419.github.io/blog-docs/tags/data-preprocessing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>data representation</title>
+      <link>https://kirmed419.github.io/blog-docs/tags/data-representation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://kirmed419.github.io/blog-docs/tags/data-representation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>jupyter</title>
+      <link>https://kirmed419.github.io/blog-docs/tags/jupyter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://kirmed419.github.io/blog-docs/tags/jupyter/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>machine learning</title>
+      <link>https://kirmed419.github.io/blog-docs/tags/machine-learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://kirmed419.github.io/blog-docs/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>matplotlib</title>
+      <link>https://kirmed419.github.io/blog-docs/tags/matplotlib/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://kirmed419.github.io/blog-docs/tags/matplotlib/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>pandas</title>
+      <link>https://kirmed419.github.io/blog-docs/tags/pandas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://kirmed419.github.io/blog-docs/tags/pandas/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>programming</title>
+      <link>https://kirmed419.github.io/blog-docs/tags/programming/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://kirmed419.github.io/blog-docs/tags/programming/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>python</title>
+      <link>https://kirmed419.github.io/blog-docs/tags/python/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://kirmed419.github.io/blog-docs/tags/python/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
